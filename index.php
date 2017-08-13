@@ -12,45 +12,49 @@
  * @package Deven_Blog
  */
 
-get_header(); ?>
+get_header('blog'); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+	<section class="Section Section-light">
+        <div class="container">
 
 			<?php
-			endif;
+				if ( have_posts() ) :
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+					if ( is_home() && ! is_front_page() ) : ?>
+						<!-- <header>
+							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+						</header> -->
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+					<?php endif; ?>
+					
+					<div class="row">
+						<?php
+							/* Start the Loop */
+							while ( have_posts() ) : the_post();
 
-			endwhile;
+								/*
+								 * Include the Post-Format-specific template for the content.
+								 * If you want to override this in a child theme, then include a file
+								 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+								 */
+								get_template_part( 'template-parts/content', get_post_format() );
 
-			the_posts_navigation();
+							endwhile;
+						?>
+					</div>
+					
+					<?php deven_blog_pagination(); ?>
 
-		else :
+					<?php
+				else :
 
-			get_template_part( 'template-parts/content', 'none' );
+					get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+				endif; 
+			?>
+        </div>
+    </section>
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

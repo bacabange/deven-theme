@@ -27,7 +27,7 @@ if ( ! function_exists( 'deven_blog_posted_on' ) ) :
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
 			esc_html_x( 'Posted on %s', 'post date', 'deven-blog' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			$time_string
 		);
 
 		$byline = sprintf(
