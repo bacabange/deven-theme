@@ -1,0 +1,27 @@
+.btn
+	&.btn-primary
+		background: $sc-color-orange
+		@extend .z-depth-0
+	&:hover
+		background-color: darken($sc-color-orange, 5%)
+		@extend .z-depth-1
+	&.btn-light
+		background: $sc-color-white
+		& > i
+			color: $sc-color-orange
+		@extend .z-depth-0
+	&:hover
+		background-color: darken($sc-color-white, 5%)
+		@extend .z-depth-1
+	&-header
+		position: absolute
+		top: -30px
+		left: 48%
+		@media only screen and (max-width : 480px)
+			left: 44%
+	&-card-blog
+		background: $sc-color-orange
+		@extend .z-depth-0
+		&:hover
+			background-color: darken($sc-color-orange, 5%)
+			@extend .z-depth-1

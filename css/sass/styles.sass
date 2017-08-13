@@ -1,0 +1,65 @@
+@import "components/variables"
+@import "components/colors"
+
+@import "materialize/materialize"
+
+@import "components/navbar"
+@import "components/buttons"
+@import "components/card"
+@import "components/post"
+
+
+body
+	background: $sc-color-white
+
+.logo
+	width: $logo-width
+	margin-top: $logo-margin-top
+
+.homeHeader
+	background: $sc-color-dark
+	color: $sc-color-white
+	height: 100vh
+	position: relative
+	h1, p
+		font-family: 'Roboto mono', monoscape
+	h1
+		font-size: 2em
+	p
+		font-size: 1.2em
+		font-weight: 300
+	&-content
+		position: absolute
+		bottom: 4em
+
+.blogHeader
+	background: $sc-color-dark
+	color: $sc-color-white
+	overflow: hidden
+	position: relative
+	padding-bottom: 2em
+	h1, p
+		font-family: 'Roboto mono', monoscape
+		text-align: center
+
+.Section
+	padding: 2em 0
+	&-light
+		color: $sc-color-dark
+	&-white
+		background: white
+
+.page-footer
+	padding-top: 0px
+	background-color: $sc-color-orange-dark
+	text-align: center
+	&-big
+		padding: 2em 0
+		background-color: $sc-color-orange
+		color: white
+		text-align: center
+.first-section
+	position: relative
+
+.text-sc-blue
+	color: $sc-color-blue
