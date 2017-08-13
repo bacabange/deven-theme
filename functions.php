@@ -118,10 +118,15 @@ add_action( 'widgets_init', 'deven_blog_widgets_init' );
  */
 function deven_blog_scripts() {
 	wp_enqueue_style( 'deven-blog-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'deven-blog-style-highlight', get_template_directory_uri() . '/css/highlight/monokai-sublime.css' );
+	wp_enqueue_style( 'deven-blog-style-fullPage', get_template_directory_uri() . '/css/jquery.fullPage.css' );
 
+	wp_enqueue_script( 'deven-blog-materialize', get_template_directory_uri() . '/js/materialize.js', array(), '20151215', true );
+	wp_enqueue_script( 'deven-blog-fullpage', get_template_directory_uri() . '/js/jquery.fullpage.js', array(), '20151215', true );
+	wp_enqueue_script( 'deven-blog-highlight', get_template_directory_uri() . '/js/highlight.pack.js', array(), '20151215', true );
 	wp_enqueue_script( 'deven-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'deven-blog-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'deven-blog-main', get_template_directory_uri() . '/js/main.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

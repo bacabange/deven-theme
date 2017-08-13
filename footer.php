@@ -28,6 +28,9 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<script  src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
 <?php wp_footer(); ?>
 
 </body>
