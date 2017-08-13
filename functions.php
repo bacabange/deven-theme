@@ -44,7 +44,7 @@ if ( ! function_exists( 'deven_blog_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'deven-blog' ),
+			'menu-main' => esc_html__( 'Primary', 'deven-blog' ),
 		) );
 
 		/*
@@ -138,6 +138,11 @@ add_action( 'wp_enqueue_scripts', 'deven_blog_scripts' );
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Implement the Custom Menu.
+ */
+require get_template_directory() . '/inc/custom-menu.php';
 
 /**
  * Custom template tags for this theme.
