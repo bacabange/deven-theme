@@ -41,6 +41,46 @@ if ( ! function_exists( 'deven_blog_posted_on' ) ) :
 	}
 endif;
 
+if ( ! function_exists('deven_blog_author')) {
+	function deven_blog_author()
+	{
+		echo '<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"><div class="chip"><i class="fa fa-user"></i> ' . esc_html( get_the_author() ) .'</div></a>';
+	}
+}
+
+if ( ! function_exists('deven_blog_tags')) {
+	function deven_blog_tags()
+	{
+		if ( 'post' === get_post_type() ) {
+			$tags = get_tags();
+			$html = '';
+			foreach ( $tags as $tag ) {
+				$tag_link = get_tag_link( $tag->term_id );
+						
+				$html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'><div class='chip'>";
+				$html .= "{$tag->name}</div></a>";
+			}
+			echo $html;
+		}
+	}
+}
+
+if ( ! function_exists( 'deven_blog_category' ) ) :
+	function deven_blog_category() {
+		if ( 'post' === get_post_type() ) {
+			$categories = get_the_category();
+			$output = '';
+			if ( ! empty( $categories ) ) {
+			    foreach( $categories as $category ) {
+			        $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '"><div class="chip">' . esc_html( $category->name ) . '</div></a>' . $separator;
+			    }
+			    echo $output;
+			}
+		}
+	}
+endif;
+
+
 if ( ! function_exists( 'deven_blog_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
